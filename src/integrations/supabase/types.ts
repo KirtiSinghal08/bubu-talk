@@ -14,7 +14,135 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          language: string | null
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          language?: string | null
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          language?: string | null
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      lesson_progress: {
+        Row: {
+          completed_at: string
+          id: string
+          language: string
+          lesson: string
+          minutes: number
+          score: number
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          language: string
+          lesson: string
+          minutes?: number
+          score?: number
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          language?: string
+          lesson?: string
+          minutes?: number
+          score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          daily_goal_minutes: number
+          display_name: string
+          id: string
+          learner_age: number | null
+          learning_language: string
+          minutes_practiced: number
+          native_language: string
+          plan: string
+          streak_days: number
+          updated_at: string
+          words_learned: number
+        }
+        Insert: {
+          created_at?: string
+          daily_goal_minutes?: number
+          display_name?: string
+          id: string
+          learner_age?: number | null
+          learning_language?: string
+          minutes_practiced?: number
+          native_language?: string
+          plan?: string
+          streak_days?: number
+          updated_at?: string
+          words_learned?: number
+        }
+        Update: {
+          created_at?: string
+          daily_goal_minutes?: number
+          display_name?: string
+          id?: string
+          learner_age?: number | null
+          learning_language?: string
+          minutes_practiced?: number
+          native_language?: string
+          plan?: string
+          streak_days?: number
+          updated_at?: string
+          words_learned?: number
+        }
+        Relationships: []
+      }
+      vocab_words: {
+        Row: {
+          created_at: string
+          id: string
+          language: string
+          translation: string
+          user_id: string
+          word: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          language: string
+          translation: string
+          user_id: string
+          word: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          language?: string
+          translation?: string
+          user_id?: string
+          word?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
