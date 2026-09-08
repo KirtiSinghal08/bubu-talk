@@ -13,9 +13,6 @@ import { clearBubuChat, talkToBubu } from "@/lib/bubu.functions";
 import { LANGUAGES, languageByName } from "@/lib/languages";
 
 export const Route = createFileRoute("/_authenticated/talk")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    lang: typeof search.lang === "string" ? search.lang : undefined,
-  }),
   head: () => ({
     meta: [
       { title: "Talk with Bubu — Live Language Practice" },
@@ -43,12 +40,11 @@ type SpeechRecognitionLike = {
 };
 
 function TalkPage() {
-  const { lang } = Route.useSearch();
   const { user } = useSession();
   const send = useServerFn(talkToBubu);
   const clear = useServerFn(clearBubuChat);
 
-  const [language, setLanguage] = useState(lang ?? "Spanish");
+  const [language, setLanguage] = useState("Spanish");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [thinking, setThinking] = useState(false);

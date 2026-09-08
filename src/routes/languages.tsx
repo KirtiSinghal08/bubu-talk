@@ -38,9 +38,7 @@ function LanguagesPage() {
               <p className="text-sm font-semibold text-primary">{l.native}</p>
               <p className="mt-2 flex-1 text-sm text-muted-foreground">{l.blurb}</p>
               <Button asChild className="mt-5 rounded-xl">
-                <Link to="/talk" search={{ lang: l.name }}>
-                  Talk in {l.name}
-                </Link>
+                <Link to="/talk">Talk in {l.name}</Link>
               </Button>
             </div>
           ))}
