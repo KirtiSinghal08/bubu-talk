@@ -1,0 +1,3 @@
+- [ ] Add owner-private game rewards and daily activity storage.
+- [ ] Build age-adaptive Play & Learn games and daily word challenge inside the existing dashboard.
+- [ ] Verify the dashboard, all game modes, persistence, and the preview build.
