@@ -41,6 +41,45 @@ export type Database = {
         }
         Relationships: []
       }
+      game_progress: {
+        Row: {
+          current_streak: number
+          daily_words_completed: number
+          daily_words_date: string | null
+          earned_badges: string[]
+          games_completed: number
+          last_played_on: string | null
+          longest_streak: number
+          updated_at: string
+          user_id: string
+          xp_total: number
+        }
+        Insert: {
+          current_streak?: number
+          daily_words_completed?: number
+          daily_words_date?: string | null
+          earned_badges?: string[]
+          games_completed?: number
+          last_played_on?: string | null
+          longest_streak?: number
+          updated_at?: string
+          user_id: string
+          xp_total?: number
+        }
+        Update: {
+          current_streak?: number
+          daily_words_completed?: number
+          daily_words_date?: string | null
+          earned_badges?: string[]
+          games_completed?: number
+          last_played_on?: string | null
+          longest_streak?: number
+          updated_at?: string
+          user_id?: string
+          xp_total?: number
+        }
+        Relationships: []
+      }
       lesson_progress: {
         Row: {
           completed_at: string
