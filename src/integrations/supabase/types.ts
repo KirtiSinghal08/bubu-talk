@@ -41,6 +41,48 @@ export type Database = {
         }
         Relationships: []
       }
+      game_progress: {
+        Row: {
+          current_streak: number
+          daily_word_ids: string[]
+          daily_words_completed: number
+          daily_words_date: string | null
+          earned_badges: string[]
+          games_completed: number
+          last_played_on: string | null
+          longest_streak: number
+          updated_at: string
+          user_id: string
+          xp_total: number
+        }
+        Insert: {
+          current_streak?: number
+          daily_word_ids?: string[]
+          daily_words_completed?: number
+          daily_words_date?: string | null
+          earned_badges?: string[]
+          games_completed?: number
+          last_played_on?: string | null
+          longest_streak?: number
+          updated_at?: string
+          user_id: string
+          xp_total?: number
+        }
+        Update: {
+          current_streak?: number
+          daily_word_ids?: string[]
+          daily_words_completed?: number
+          daily_words_date?: string | null
+          earned_badges?: string[]
+          games_completed?: number
+          last_played_on?: string | null
+          longest_streak?: number
+          updated_at?: string
+          user_id?: string
+          xp_total?: number
+        }
+        Relationships: []
+      }
       lesson_progress: {
         Row: {
           completed_at: string
@@ -148,7 +190,28 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      claim_game_reward: {
+        Args: { p_daily_word_id?: string; p_xp: number }
+        Returns: {
+          current_streak: number
+          daily_word_ids: string[]
+          daily_words_completed: number
+          daily_words_date: string | null
+          earned_badges: string[]
+          games_completed: number
+          last_played_on: string | null
+          longest_streak: number
+          updated_at: string
+          user_id: string
+          xp_total: number
+        }
+        SetofOptions: {
+          from: "*"
+          to: "game_progress"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
     }
     Enums: {
       [_ in never]: never
